@@ -10,7 +10,11 @@ function AppRouter() {
         <BrowserRouter>
             <Routes>
                 <Route element={<Layout/>}>
-                    <Route index path="/" element={<IndexPage/>}/>
+                    <Route index path="/" element={
+                        <Suspense fallback={'Cargando...'}>
+                            <IndexPage/>
+                        </Suspense>
+                    }/>
                     <Route path="/favorites" element={
                         <Suspense fallback={'Cargando...'}>
                             <FavoritesPage/>
